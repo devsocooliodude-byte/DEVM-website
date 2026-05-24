@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DEVM Website</title>
+  <style>
+    /* Resetting defaults to prevent rendering bugs */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #cc0000 !important; /* Forces the red background */
+      color: #000000; 
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      letter-spacing: 1px;
+      overflow-x: hidden;
+      border: 20px solid royalblue; /* Your blue border */
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .comic-panel {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      display: block;
+    }
+
+    h1 {
+      font-size: 90px;
+      margin: 10px 0 30px 0;
+      color: #ffe600; 
+      text-shadow: 4px 4px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
+      transform: skewX(-5deg); 
+      display: inline-block;
+    }
+
+    /* Forced solid yellow narrator box */
+    .caption-box {
+      background: #ffe600 !important;
+      color: #000000 !important;
+      border: 5px solid #000000 !important;
+      padding: 20px;
+      font-size: 26px;
+      box-shadow: 8px 8px 0px #000000;
+      margin: 0 auto 40px auto;
+      transform: rotate(-1deg);
+      max-width: 600px;
+      text-align: left;
+      display: block;
+    }
+    
+    /* Forced solid white speech bubble container */
+    .bubble-container {
+      background: #ffffff !important;
+      color: #000000 !important;
+      border: 5px solid #000000 !important;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 8px 8px 0px #000000;
+      display: inline-block;
+      margin-bottom: 50px;
+      transform: rotate(2deg);
+      max-width: 90%;
+    }
+    
+    a {
+      color: royalblue !important;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    
+    a:hover {
+      color: #cc0000 !important;
+      text-decoration: underline;
+    }
+
+    button {
+      font-family: 'Impact', sans-serif;
+      font-size: 28px;
+      background-color: royalblue;
+      color: white;
+      border: 5px solid black;
+      padding: 15px 30px;
+      cursor: pointer;
+      box-shadow: 6px 6px 0px black;
+      transition: transform 0.1s, box-shadow 0.1s;
+      display: inline-block;
+      margin: 20px auto;
+    }
+
+    button:hover {
+      background-color: #ffe600;
+      color: black;
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    button:active {
+      transform: scale(0.95);
+      box-shadow: 2px 2px 0px black;
+    }
+
+    #spiderman {
+      position: absolute;
+      left: -100px;
+      top: 450px; 
+      font-size: 70px;
+      transition: left 2s ease-in-out;
+      z-index: 10;
+    }
+
+    #thwip-text {
+      position: absolute;
+      left: 150px;
+      top: 400px;
+      font-size: 60px;
+      font-weight: bold;
+      color: yellow;
+      background-color: black;
+      padding: 5px 20px;
+      border: 5px solid white;
+      box-shadow: 5px 5px 0px black;
+      transform: rotate(-15deg); 
+      display: none;
+      z-index: 11;
+    }
+
+    #spidey-head {
+      position: fixed;
+      bottom: 40px; 
+      right: 40px;
+      font-size: 70px;
+      animation: shake 0.5s infinite;
+      z-index: 10;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(0px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(2px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(2px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="comic-panel">
+    <h1>DEVM</h1>
+    
+    <div class="caption-box">
+      Welcome to my page! I love Spider-Man and making videos. My older channels got deleted, so this is a fresh start!
+    </div>
+    
+    <div class="bubble-container">
+      <a href="https://www.youtube.com/@devdudeYT" target="_blank">💥 CHECK MY YOUTUBE CHANNEL FOR A FACE REVEAL! 💥</a>
+    </div>
+    
+    <br>
+    <button onclick="swingSpidey()">MAKE SPIDER-MAN SWING!</button>
+  </div>
+
+  <div id="thwip-text">THWIP!</div>
+  <div id="spiderman">🕷️🕸️</div>
+  <div id="spidey-head">🕷️</div>
+
+  <script>
+    function swingSpidey() {
+      var spidey = document.getElementById("spiderman");
+      var thwip = document.getElementById("thwip-text");
+
+      thwip.style.display = "block";
+      spidey.style.left = "100%";
+
+      setTimeout(function() {
+        thwip.style.display = "none";
+        spidey.style.left = "-100px";
+      }, 2500);
+    }
+  </script>
+
+</body>
+</html>
